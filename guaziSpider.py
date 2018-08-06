@@ -9,7 +9,7 @@ from execute_script import excuteScript
 
 """
 reference:https://bbs.csdn.net/topics/392377474?list=lz
-author:Mrtddc
+author:SpongeBod
 """
 
 def getAntipas():
