@@ -13,6 +13,8 @@ author:Mrtddc
 """
 
 def getAntipas():
+    """获取cookie中的参数antipas"""
+    
     url = 'https://www.guazi.com/bj/'
     headers = {
     'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
@@ -32,6 +34,8 @@ def getAntipas():
     return antipas
     
 def getToken(antipas):
+    """获取发送短信验证码时需要提交的参数token和time"""
+    
     url = 'https://www.guazi.com/bj/'
     
     headers = {
@@ -51,6 +55,8 @@ def getToken(antipas):
     return data_str,time
     
 def sendSms(phoneNumber,data_str,time,antipas):
+    """以post方式提交"""
+    
     url = 'https://www.guazi.com/zq_user/?act=register'
     
     headers = {
@@ -70,7 +76,8 @@ def sendSms(phoneNumber,data_str,time,antipas):
     data = {
     'phone': phoneNumber,
     'time': time,
-    'token': md5((data_str+'guazi&js&token'+str(phoneNumber)).encode('utf-8')).hexdigest()}
+    'token': md5((data_str+'guazi&js&token'+str(phoneNumber)).encode('utf-8')).hexdigest() #从JS代码中找到的token的生成方法
+    }
     
     r = requests.post(url,headers=headers,data=data)
     result = demjson.decode(r.text)
