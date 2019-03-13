@@ -1,2 +1,2 @@
 # guaziSpider
-a spider for guazi.com
+a webspider for guazi.com
